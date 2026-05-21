@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.1em; opacity: 0.9; }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: #764ba2; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .post h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .post .meta {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .post p { line-height: 1.8; margin-bottom: 15px; }
+
+        .post img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .img-caption {
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .img-demo {
+            background: #f0f0f0;
+            border-left: 4px solid #667eea;
+            padding: 12px 16px;
+            margin: 10px 0;
+            border-radius: 0 6px 6px 0;
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>我的技术博客</h1>
+    <p>记录学习与成长的点点滴滴</p>
+</header>
+
+<nav>
+    <a href="#">首页</a>
+    <a href="#">关于</a>
+    <a href="#">归档</a>
+    <a href="#">联系</a>
+</nav>
+
+<div class="container">
+
+    <!-- 第一篇文章 -->
+    <article class="post">
+        <h2>GitHub Pages 搭建个人博客</h2>
+        <div class="meta">2026-05-21 · 实验记录</div>
+
+        <p>
+            本文记录了使用 GitHub Pages 搭建个人静态博客的过程。
+            GitHub Pages 是 GitHub 提供的免费静态网页托管服务，
+            通过简单的配置即可将个人仓库中的 HTML 文件发布为网站。
+        </p>
+
+        <h3>绝对路径图片示例</h3>
+        <p>以下图片通过<strong>绝对路径</strong>（完整 URL）引用自外部图床：</p>
+
+        <div class="img-demo">
+            src="https://picsum.photos/600/300?random=1"
+        </div>
+
+        <img src="https://picsum.photos/600/300?random=1"
+             alt="绝对路径示例图片 - 来自 picsum.photos">
+
+        <div class="img-caption">图1：使用绝对路径引用的图片（来自 picsum.photos）</div>
+
+        <p>
+            绝对路径包含了完整的协议（https）、域名（picsum.photos）和资源路径，
+            无论网页部署在哪里，都能正确加载该图片。
+        </p>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+
+        <h3>相对路径图片示例</h3>
+        <p>以下图片通过<strong>相对路径</strong>引用自项目内的文件：</p>
+
+        <div class="img-demo">
+            src="../image/1.png"
+        </div>
+
+        <img src="../image/1.png"
+             alt="相对路径示例图片 - 项目内图片">
+
+        <div class="img-caption">图2：使用相对路径引用的图片（../image/1.png）</div>
+
+        <p>
+            相对路径以当前 HTML 文件所在位置为基准，<code>../</code> 表示上一级目录，
+            再进入 <code>image/</code> 文件夹找到 <code>1.png</code>。
+            相对路径的优势在于：项目整体迁移时，只要保持内部目录结构不变，图片链接就不会失效。
+        </p>
+    </article>
+
+    <!-- 第二篇文章 -->
+    <article class="post">
+        <h2>相对路径 vs 绝对路径</h2>
+        <div class="meta">2026-05-21 · 学习笔记</div>
+
+        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
+            <thead>
+                <tr style="background:#667eea; color:white;">
+                    <th style="padding:10px; border:1px solid #ddd;">对比维度</th>
+                    <th style="padding:10px; border:1px solid #ddd;">绝对路径</th>
+                    <th style="padding:10px; border:1px solid #ddd;">相对路径</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:10px; border:1px solid #ddd;"><strong>定义</strong></td>
+                    <td style="padding:10px; border:1px solid #ddd;">完整的 URL 地址</td>
+                    <td style="padding:10px; border:1px solid #ddd;">相对于当前文件的路径</td>
+                </tr>
+                <tr style="background:#f9f9f9;">
+                    <td style="padding:10px; border:1px solid #ddd;"><strong>示例</strong></td>
+                    <td style="padding:10px; border:1px solid #ddd;">https://example.com/img/1.png</td>
+                    <td style="padding:10px; border:1px solid #ddd;">../image/1.png</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #ddd;"><strong>优点</strong></td>
+                    <td style="padding:10px; border:1px solid #ddd;">不受文件位置影响</td>
+                    <td style="padding:10px; border:1px solid #ddd;">便于项目整体迁移</td>
+                </tr>
+                <tr style="background:#f9f9f9;">
+                    <td style="padding:10px; border:1px solid #ddd;"><strong>缺点</strong></td>
+                    <td style="padding:10px; border:1px solid #ddd;">域名变更则全部失效</td>
+                    <td style="padding:10px; border:1px solid #ddd;">文件移动后需调整路径</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+</div>
+
+<footer>
+    <p>Powered by GitHub Pages | &copy; 2026 我的个人博客</p>
+</footer>
+
+</body>
+</html>
